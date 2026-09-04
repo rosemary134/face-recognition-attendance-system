@@ -5,8 +5,7 @@ A web-based equipment borrowing management system that uses **Face Recognition**
 The system allows users to register their information, capture face images through a webcam, train a recognition model, and automatically record the user's identity, classroom, and borrowing time.
 
 ## System Interface
-
-![System Interface](screenshots/home_public.png)
+<img width="1771" height="884" alt="image" src="https://github.com/user-attachments/assets/2bdceccc-9d40-4d87-8241-7f8e838f54db" />
 
 ## Features
 
@@ -39,7 +38,6 @@ The system automatically records:
 - Borrowing time
 
 The records are stored in CSV files and displayed on the web interface.
-<img width="1771" height="884" alt="image" src="https://github.com/user-attachments/assets/c3bfab8b-3f1e-4573-9053-bba2d7a6dcfe" />
 
 ### 5. User Management
 - View registered users.
