@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<style type='text/css'>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* logo */
+    .logo {
+        width: 48px; 
+        height: 48px; 
+        margin: 0 15px; 
+        border-radius: 50%; 
+        object-fit: cover;
+    }
+    .logo-container {
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    header {
+        text-align: center; /* Căn giữa nội dung trong header */
+        padding: 20px; /* Thêm khoảng cách */
+    }
+
+    body {
+        background-image: url('https://cutewallpaper.org/21/1920-x-1080-gif/1920x1080-Wallpapercartoon-Wallpapers-Driverlayer-Search-.gif');
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 40px;
+        height: 120vh;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px; /* Tạo khoảng cách giữa các cột */
+        padding: 25px;
+        margin: 20px auto;
+        max-width: 90%; /* Giới hạn chiều rộng tối đa của trang */
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    td, th {
+        border: 1px solid black !important; /* màu viền của bảng dữ liệu */
+        padding: 10px;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background-color: #edeef4; /* màu nền của bảng dữ liệu */
+    }
+
+    h2, h5 {
+        margin-bottom: 20px; 
+    }
+
+    /* Nút trạng thái */
+    /* .status-button.pending {
+  
+       
+    }
+
+    .status-button.returned {
+    
+    } */
+
+    /* Phần chung cho cả form và attendance */
+    .section {
+        border-radius: 20px;
+        padding: 20px;
+        background-color: #d5e7ff; /* Màu xanh đồng bộ cho cả hai phần */
+        min-height: 500px; /* Tăng chiều cao để phù hợp với yêu cầu kéo dài */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* Form section specific */
+    .form-section input, 
+    .form-section button {
+        width: 100%; /* Căn chỉnh chiều rộng form cho phù hợp với chiều dài */
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .form-section h2 {
+        border-radius: 20px 20px 0px 0px;
+        background-color: #72bff8;
+        color: white;
+        padding: 10px;
+    }
+
+    .form-section button {
+        border-radius: 10px;
+        font-size: 20px;
+        background-color: #222c6b; /* màu của button thêm người dùng */
+        color: white;
+    }
+
+    .attendance-section h2 {
+        border-radius: 20px 20px 0px 0px;
+        background-color: #72bff8;
+        color: white;
+        padding: 10px;
+    }
+
+    .attendance-section table {
+        background-color: white;
+    }
+
+    .btn-primary {
+        background-color: #686aed !important;
+        border-color: #5c5ecf !important;
+        color: white !important;
+    }
+    /* kích cỡ 2 bảng */
+    .attendance-section {
+        flex: 4; 
+    }
+    
+    .form-section {
+        flex: 3; 
+    }
+
+
+    
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>Mượn thiết bị phòng học</title>
+</head>
+
+<body>
+    <div class="logo-container">
+        <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-DH-Kien-Truc-Ha-Noi-HAU-Tra.png" alt="Logo truong" class="logo"> 
+    </div>
+
+    <div class="mt-3 text-center">
+        <h1 style="color: black; padding: 11px; font-size: 44px;">Hệ Thống Nhận Diện Khuôn Mặt Cho Mượn Thiết Bị</h1>
+    </div>
+
+    {% if mess %}
+    <p class="text-center" style="color: #686aed; font-size: 20px;">{{ mess }}</p> /*#686aed: màu tím nhạt */
+    {% endif %}
+
+    <div class="container">
+       
+        <div class="section attendance-section">
+            <h2>Hệ thống nhận diện<i class="material-icons">assignment</i></h2>
+
+            <form action="/start" method="GET">
+                <label style="font-size: 20px;"><b>Nhập Phòng học*</b></label>
+                <input type="width: 100%; text; font-size: 15px" id="room" name="room" style="font-size: 25px;" required>
+                <button style="font-size: 24px; font-weight: bold; border-radius: 10px; padding: 10px;" type="submit" class="btn btn-primary">Mượn thiết bị</button>
+            </form>
+                    
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và Tên</th>
+                    <th>MSV</th>
+                    <th>Lớp</th>
+                    <th>Phòng</th>
+                    <th>Thời Gian</th> 
+                    
+                </tr>
+                {% if l %}
+                {% for i in range(l) %}
+                <tr>
+                    <td>{{ i+1 }}</td>
+                    <td>{{ names[i] }}</td>
+                    <td>{{ rolls[i] }}</td>
+                    <td>{{ lops[i] }}</td> 
+                    <td>{{ rooms[i] }}</td> 
+                    <td>{{ times[i] }}</td>
+        
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </table>
+        </div>
+
+        <!-- New user form section -->
+        <div class="section form-section">
+            <form action='/add' method="POST" enctype="multipart/form-data">
+                <h2>Thêm Người Dùng Mới <i class="material-icons">control_point_duplicate</i></h2>
+                <label style="font-size: 20px;"><b>Thêm Tên Người Dùng Mới *</b></label>
+                <input type="text" id="newusername" name="newusername" required>
+                <label style="font-size: 20px;"><b>Thêm MSV Người Dùng Mới *</b></label>
+                <input type="text" id="newuserid" name="newuserid" required>
+                <label style="font-size: 20px;"><b>Lớp *</b></label>
+                <input type="text" id="newclass" name="newclass" required>
+                <button type="submit" font-weight= "bold" class="btn btn-dark">Thêm Người Dùng</button>
+                <h5><i>Tổng Số Người Dùng Trong Database: {{totalreg}}</i></h5>
+            </form>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
